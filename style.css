@@ -147,12 +147,12 @@ nav{display:flex; align-items:center; justify-content:space-between;}
 .order-online{background:var(--sand);}
 .order-pills{display:flex; flex-wrap:wrap; justify-content:center; gap:16px;}
 .order-pill{
-  display:inline-flex; align-items:center; gap:10px; background:#fff; color:var(--charcoal);
+  display:inline-flex; align-items:center; gap:10px; background:#f6ecd9; color:var(--charcoal);
   border:1.5px solid rgba(42,36,31,0.14); border-radius:999px; padding:14px 26px; font-size:14.5px;
   font-weight:600; box-shadow:0 4px 14px rgba(42,36,31,0.06); transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 .order-pill .ic{font-size:18px; line-height:1;}
-.order-pill:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(42,36,31,0.12); background:#fff8ef;}
+.order-pill:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(42,36,31,0.12); background:#f0e2c8;}
 .order-pill-primary{background:var(--terracotta); color:#fff; border-color:var(--terracotta);}
 .order-pill-primary:hover{background:var(--terracotta-dark); color:#fff;}
 @media (max-width:600px){ .order-pills{flex-direction:column; align-items:stretch;} .order-pill{justify-content:center;} }
