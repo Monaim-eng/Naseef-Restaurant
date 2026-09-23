@@ -43,9 +43,6 @@
 <section>
   <div class="wrap">
     <div class="gallery-grid gallery-grid-full" id="galleryGrid"></div>
-    <p style="text-align:center; margin-top:30px; font-size:13.5px; color:#7a6e5c;">
-      Want to add more? Drop new photos into the <code>images</code> folder as <code>gallery-31.jpg</code>, <code>gallery-32.jpg</code>, etc., and raise the <code>TOTAL_PHOTOS</code> number at the bottom of this page. See <code>images/README.txt</code> for details.
-    </p>
   </div>
 </section>
 
@@ -84,8 +81,9 @@
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-  // Raise this as more photos are added (see images/README.txt for filenames).
-  const TOTAL_PHOTOS = 39;
+  // Curated set of photo numbers — the best, non-duplicate shots.
+  // To add more later, just append new numbers to this array (matching images/gallery-N.jpg files).
+  const PHOTOS = [1,2,3,4,5,6,8,9,10,11,13,14,16,17,18,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,37,38];
   const FALLBACKS = [
     'linear-gradient(160deg,#4f7d82,#1f3b40)',
     'linear-gradient(160deg,#c1502e,#7a2f18)',
@@ -96,19 +94,19 @@
   ];
 
   const grid = document.getElementById('galleryGrid');
-  for(let i = 1; i <= TOTAL_PHOTOS; i++){
+  PHOTOS.forEach((n, idx) => {
     const item = document.createElement('div');
     item.className = 'g-item';
-    item.style.backgroundImage = `url('images/gallery-${i}.jpg'), ${FALLBACKS[i % FALLBACKS.length]}`;
-    item.dataset.index = i;
-    item.addEventListener('click', () => openLightbox(i));
+    item.style.backgroundImage = `url('images/gallery-${n}.jpg'), ${FALLBACKS[idx % FALLBACKS.length]}`;
+    item.dataset.index = idx;
+    item.addEventListener('click', () => openLightbox(idx));
     grid.appendChild(item);
-  }
+  });
 
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lbCount = document.getElementById('lbCount');
-  let currentIndex = 1;
+  let currentIndex = 0;
 
   function openLightbox(i){
     currentIndex = i;
@@ -119,15 +117,15 @@
     lightbox.classList.remove('open');
   }
   function updateLightbox(){
-    lightboxImg.src = `images/gallery-${currentIndex}.jpg`;
-    lbCount.textContent = `${currentIndex} / ${TOTAL_PHOTOS}`;
+    lightboxImg.src = `images/gallery-${PHOTOS[currentIndex]}.jpg`;
+    lbCount.textContent = `${currentIndex + 1} / ${PHOTOS.length}`;
   }
   function showPrev(){
-    currentIndex = currentIndex === 1 ? TOTAL_PHOTOS : currentIndex - 1;
+    currentIndex = currentIndex === 0 ? PHOTOS.length - 1 : currentIndex - 1;
     updateLightbox();
   }
   function showNext(){
-    currentIndex = currentIndex === TOTAL_PHOTOS ? 1 : currentIndex + 1;
+    currentIndex = currentIndex === PHOTOS.length - 1 ? 0 : currentIndex + 1;
     updateLightbox();
   }
 
