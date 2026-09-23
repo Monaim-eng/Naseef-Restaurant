@@ -16,6 +16,20 @@ HOMEPAGE (index.html):
   tanoor.jpg      Landscape photo for the "From Our Tanoor" section.
                   Recommended: landscape, around 1600x1000px.
 
+  heritage-street.jpg   Background photo behind the "Three Generations"
+                  story text. Currently the sketch of the old street.
+                  Recommended: portrait, 4:5 ratio (e.g. 1000x1250px) —
+                  crop to the part you want visible, since this section
+                  shows the image "zoomed to fill," not the whole file.
+
+  founder-naseef.jpg    Photo of Mr. Naseef (founder) in the "Three
+                  Generations of Craft" section. Recommended: square,
+                  at least 800x800px.
+
+  founder-ibrahim.jpg   Photo of Ibrahim Naseef (second generation) in
+                  the same section. Recommended: square, at least
+                  800x800px.
+
   gallery-1.jpg   Sea view terrace
   gallery-2.jpg   Naseef signage & entrance
   gallery-3.jpg   Indoor seating & greenery
