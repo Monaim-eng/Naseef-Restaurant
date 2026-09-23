@@ -71,6 +71,191 @@
 </section>
 
 <section class="tanoor">
+  <div class="wrap" style="grid-template-columns:1fr;">
+    <div class="section-head" style="text-align:left; margin-bottom:24px;">
+      <span class="eyebrow">A Taste of What We Set Up</span>
+      <h2>Signature Spreads</h2>
+      <p>A few favorites from past events — styled dessert stations, warm mezze, and hearty mains, plated the way they'll arrive at yours.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-21.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Styled Dessert Station</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-27.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Crispy Canapés</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-29.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Finger Sandwiches &amp; Warak Enab</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-35.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Mutton Seekh Kabab</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-37.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Kofta in Tomato Sauce</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-25.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Assorted Dessert Squares</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-39.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">Gratin Potatoes</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1; border-radius:6px; background-image:url('images/catering-31.jpg'); background-size:cover; background-position:center; margin-bottom:8px;"></div>
+        <div style="text-align:center; font-size:13.5px; color:#d8cdb8;">A Full Buffet Setup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order-online">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Catering in Action</span>
+      <h2>Every Spread We've Put Together</h2>
+      <p>The complete gallery — click any photo for a closer look.</p>
+    </div>
+    <div class="gallery-grid gallery-grid-full" id="cateringGrid"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+  <img id="lightboxImg" src="" alt="Naseef catering photo">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#10095;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-logo">naseef</div>
+      <div class="foot-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reserve">Reserve</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="tel:+97338966668">+973 3896&nbsp;6668</a>
+        <a href="https://www.instagram.com/naseefrestaurant/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Naseef Restaurant, Sa'ada Seafront, Muharraq, Bahrain.</span>
+      <span>Est. 1920</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // Raise this as more catering photos are added (see images/README.txt for filenames).
+  const TOTAL_CATERING_PHOTOS = 40;
+  const FALLBACKS = [
+    'linear-gradient(160deg,#4f7d82,#1f3b40)',
+    'linear-gradient(160deg,#c1502e,#7a2f18)',
+    'linear-gradient(160deg,#3f5343,#1d2b23)',
+    'linear-gradient(160deg,#d99a5b,#a5652c)',
+    'linear-gradient(160deg,#8a7c64,#4c4436)',
+    'linear-gradient(160deg,#6b8f93,#2c454a)'
+  ];
+
+  const grid = document.getElementById('cateringGrid');
+  for(let i = 1; i <= TOTAL_CATERING_PHOTOS; i++){
+    const item = document.createElement('div');
+    item.className = 'g-item';
+    item.style.backgroundImage = `url('images/catering-${i}.jpg'), ${FALLBACKS[i % FALLBACKS.length]}`;
+    item.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(item);
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lbCount = document.getElementById('lbCount');
+  let currentIndex = 1;
+
+  function openLightbox(i){
+    currentIndex = i;
+    updateLightbox();
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+  }
+  function updateLightbox(){
+    lightboxImg.src = `images/catering-${currentIndex}.jpg`;
+    lbCount.textContent = `${currentIndex} / ${TOTAL_CATERING_PHOTOS}`;
+  }
+  function showPrev(){
+    currentIndex = currentIndex === 1 ? TOTAL_CATERING_PHOTOS : currentIndex - 1;
+    updateLightbox();
+  }
+  function showNext(){
+    currentIndex = currentIndex === TOTAL_CATERING_PHOTOS ? 1 : currentIndex + 1;
+    updateLightbox();
+  }
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', showPrev);
+  document.getElementById('lbNext').addEventListener('click', showNext);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') showPrev();
+    if(e.key === 'ArrowRight') showNext();
+  });
+</script>
+
+</body>
+</html>    <h1>Catering Services</h1>
+    <p>From an intimate family gathering to a full event spread — we bring Naseef's table to you, styled and ready to serve.</p>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap catering-content">
+    <div>
+      <span class="eyebrow">How It Works</span>
+      <h2>Naseef, Delivered to Your Event</h2>
+      <p>Whether it's a family gathering, an office lunch, or a larger celebration, our catering team puts together a spread of Naseef favorites — from breakfast baskets and fresh tanoor bread to mixed grills, kababs, dolma, and a full dessert table finished with our famous mango ice cream.</p>
+      <p>Every order is built around your group size and occasion, styled and set up the way you see it below. Get in touch with your date, headcount, and any preferences, and we'll follow up with options and pricing.</p>
+      <ul class="catering-list">
+        <li>Private events &amp; family gatherings</li>
+        <li>Corporate &amp; office catering</li>
+        <li>Custom menus, including vegetarian options</li>
+        <li>Fresh tanoor bread baked to order</li>
+        <li>Delivery available across Muharraq &amp; nearby areas</li>
+      </ul>
+      <p style="font-size:13.5px; color:#7a6e5c;">Note: minimum order sizes and lead times may apply depending on your event — our team will confirm details when you reach out.</p>
+    </div>
+
+    <div class="catering-card">
+      <h3>Enquire About Catering</h3>
+      <p>Reach out with your event date, guest count, and any special requests, and our team will get back to you with a plan.</p>
+      <div class="rline">📞 <strong>Call:</strong>&nbsp;+973 3896&nbsp;6668</div>
+      <div class="rline">💬 <strong>WhatsApp:</strong>&nbsp;+973 3896&nbsp;6668</div>
+      <div class="rline">🕐 <strong>Hours:</strong>&nbsp;7:00 AM – 11:00 PM daily</div>
+      <!-- TODO: swap in a dedicated catering number/email once the owner provides one -->
+      <a href="tel:+97338966668" class="btn btn-primary">Call for Catering</a>
+      <a href="https://wa.me/97338966668?text=Hi%20Naseef%2C%20I%27d%20like%20to%20ask%20about%20catering%20for%20an%20event." target="_blank" rel="noopener" class="btn btn-outline-dark">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="tanoor">
   <div class="wrap">
     <div>
       <span class="eyebrow">A Taste of What We Set Up</span>
