@@ -1,4 +1,40 @@
-<!DOCTYPE html>    <p>Bringing Naseef's Bahraini classics to your event, office, or gathering — anywhere in Muharraq and beyond.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catering | Naseef Restaurant</title>
+<meta name="description" content="Naseef Restaurant catering services — private events, office lunches, and custom menus in Muharraq, Bahrain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="siteHeader" class="scrolled">
+  <div class="wrap">
+    <nav>
+      <a href="index.html#top" class="logo">naseef<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#order">Order</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#reserve">Reserve</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#reserve" class="nav-cta">Book a Table</a>
+      </div>
+      <button class="nav-toggle" id="navToggle">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="mini-hero mh-catering">
+  <div class="wrap">
+    <span class="eyebrow">Naseef Restaurant</span>
+    <h1>Catering Services</h1>
+    <p>Bringing Naseef's Bahraini classics to your event, office, or gathering — anywhere in Muharraq and beyond.</p>
     <a href="index.html" class="back-link">&larr; Back to Home</a>
   </div>
 </section>
@@ -33,6 +69,25 @@
   </div>
 </section>
 
+<section class="order-online">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Catering in Action</span>
+      <h2>Spreads We've Put Together</h2>
+      <p>A look at past catering setups, platters, and events.</p>
+    </div>
+    <div class="gallery-grid gallery-grid-full" id="cateringGrid"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+  <img id="lightboxImg" src="" alt="Naseef catering photo">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#10095;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -59,6 +114,63 @@
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // Raise this as more catering photos are added (see images/README.txt for filenames).
+  const TOTAL_CATERING_PHOTOS = 8;
+  const FALLBACKS = [
+    'linear-gradient(160deg,#4f7d82,#1f3b40)',
+    'linear-gradient(160deg,#c1502e,#7a2f18)',
+    'linear-gradient(160deg,#3f5343,#1d2b23)',
+    'linear-gradient(160deg,#d99a5b,#a5652c)',
+    'linear-gradient(160deg,#8a7c64,#4c4436)',
+    'linear-gradient(160deg,#6b8f93,#2c454a)'
+  ];
+
+  const grid = document.getElementById('cateringGrid');
+  for(let i = 1; i <= TOTAL_CATERING_PHOTOS; i++){
+    const item = document.createElement('div');
+    item.className = 'g-item';
+    item.style.backgroundImage = `url('images/catering-${i}.jpg'), ${FALLBACKS[i % FALLBACKS.length]}`;
+    item.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(item);
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lbCount = document.getElementById('lbCount');
+  let currentIndex = 1;
+
+  function openLightbox(i){
+    currentIndex = i;
+    updateLightbox();
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+  }
+  function updateLightbox(){
+    lightboxImg.src = `images/catering-${currentIndex}.jpg`;
+    lbCount.textContent = `${currentIndex} / ${TOTAL_CATERING_PHOTOS}`;
+  }
+  function showPrev(){
+    currentIndex = currentIndex === 1 ? TOTAL_CATERING_PHOTOS : currentIndex - 1;
+    updateLightbox();
+  }
+  function showNext(){
+    currentIndex = currentIndex === TOTAL_CATERING_PHOTOS ? 1 : currentIndex + 1;
+    updateLightbox();
+  }
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', showPrev);
+  document.getElementById('lbNext').addEventListener('click', showNext);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') showPrev();
+    if(e.key === 'ArrowRight') showNext();
+  });
 </script>
 
 </body>
