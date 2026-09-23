@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery | Naseef Restaurant</title>
+<meta name="description" content="Photo gallery of Naseef Restaurant — the waterfront terrace, dining room, and dishes at Sa'ada Seafront, Muharraq.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="siteHeader" class="scrolled">
+  <div class="wrap">
+    <nav>
+      <a href="index.html#top" class="logo">naseef<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#order">Order</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#reserve">Reserve</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#reserve" class="nav-cta">Book a Table</a>
+      </div>
+      <button class="nav-toggle" id="navToggle">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="mini-hero mh-gallery">
+  <div class="wrap">
+    <span class="eyebrow">Naseef Restaurant</span>
+    <h1>Photo Gallery</h1>
+    <p>The terrace, the sea view, the dining room, and the food — a closer look at Naseef.</p>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="gallery-grid gallery-grid-full" id="galleryGrid"></div>
+    <p style="text-align:center; margin-top:30px; font-size:13.5px; color:#7a6e5c;">
+      Want to add more? Drop new photos into the <code>images</code> folder as <code>gallery-31.jpg</code>, <code>gallery-32.jpg</code>, etc., and raise the <code>TOTAL_PHOTOS</code> number at the bottom of this page. See <code>images/README.txt</code> for details.
+    </p>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+  <img id="lightboxImg" src="" alt="Naseef Restaurant photo">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#10095;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-logo">naseef</div>
+      <div class="foot-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reserve">Reserve</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="tel:+97338966668">+973 3896&nbsp;6668</a>
+        <a href="https://www.instagram.com/naseefrestaurant/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Naseef Restaurant, Sa'ada Seafront, Muharraq, Bahrain.</span>
+      <span>Est. 1920</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // Raise this as more photos are added (see images/README.txt for filenames).
+  const TOTAL_PHOTOS = 30;
+  const FALLBACKS = [
+    'linear-gradient(160deg,#4f7d82,#1f3b40)',
+    'linear-gradient(160deg,#c1502e,#7a2f18)',
+    'linear-gradient(160deg,#3f5343,#1d2b23)',
+    'linear-gradient(160deg,#d99a5b,#a5652c)',
+    'linear-gradient(160deg,#8a7c64,#4c4436)',
+    'linear-gradient(160deg,#6b8f93,#2c454a)'
+  ];
+
+  const grid = document.getElementById('galleryGrid');
+  for(let i = 1; i <= TOTAL_PHOTOS; i++){
+    const item = document.createElement('div');
+    item.className = 'g-item';
+    item.style.backgroundImage = `url('images/gallery-${i}.jpg'), ${FALLBACKS[i % FALLBACKS.length]}`;
+    item.dataset.index = i;
+    item.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(item);
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lbCount = document.getElementById('lbCount');
+  let currentIndex = 1;
+
+  function openLightbox(i){
+    currentIndex = i;
+    updateLightbox();
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+  }
+  function updateLightbox(){
+    lightboxImg.src = `images/gallery-${currentIndex}.jpg`;
+    lbCount.textContent = `${currentIndex} / ${TOTAL_PHOTOS}`;
+  }
+  function showPrev(){
+    currentIndex = currentIndex === 1 ? TOTAL_PHOTOS : currentIndex - 1;
+    updateLightbox();
+  }
+  function showNext(){
+    currentIndex = currentIndex === TOTAL_PHOTOS ? 1 : currentIndex + 1;
+    updateLightbox();
+  }
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', showPrev);
+  document.getElementById('lbNext').addEventListener('click', showNext);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') showPrev();
+    if(e.key === 'ArrowRight') showNext();
+  });
+</script>
+
+</body>
+</html>
