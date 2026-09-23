@@ -4,230 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Naseef Restaurant | Sa'ada Seafront, Muharraq</title>
-<meta name="description" content="Naseef Restaurant — waterfront Bahraini dining on Sa'ada Seafront, Muharraq since 1920. Sea views, traditional tandoor bread, breakfast, grills and desserts.">
+<meta name="description" content="Naseef Restaurant — waterfront Bahraini dining on Sa'ada Seafront, Muharraq since 1920. Sea views, traditional tanoor bread, breakfast, grills and desserts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --terracotta:#c1502e;
-    --terracotta-dark:#9c3f22;
-    --cream:#f8f2e7;
-    --sand:#ede1c8;
-    --charcoal:#2a241f;
-    --deep-green:#3f5343;
-    --teal:#4f7d82;
-    --ink:#3a3128;
-    --max:1180px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Cairo', sans-serif;
-    color:var(--ink);
-    background:var(--cream);
-    line-height:1.6;
-  }
-  h1,h2,h3,h4{font-family:'Playfair Display', serif; color:var(--charcoal); line-height:1.2;}
-  a{text-decoration:none; color:inherit;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
-  section{padding:88px 0;}
-  .eyebrow{
-    text-transform:uppercase; letter-spacing:3px; font-size:13px; font-weight:600;
-    color:var(--terracotta); margin-bottom:14px; display:block;
-  }
-  .btn{
-    display:inline-block; padding:14px 32px; border-radius:2px; font-weight:600;
-    font-size:15px; letter-spacing:0.5px; transition:all .25s ease; border:2px solid transparent;
-    cursor:pointer;
-  }
-  .btn-primary{background:var(--terracotta); color:#fff;}
-  .btn-primary:hover{background:var(--terracotta-dark);}
-  .btn-outline{border-color:#fff; color:#fff;}
-  .btn-outline:hover{background:#fff; color:var(--charcoal);}
-  .btn-outline-dark{border-color:var(--charcoal); color:var(--charcoal);}
-  .btn-outline-dark:hover{background:var(--charcoal); color:#fff;}
-
-  /* NAV */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(42,36,31,0.0); transition:background .3s ease, box-shadow .3s ease;
-    padding:22px 0;
-  }
-  header.scrolled{background:rgba(42,36,31,0.94); box-shadow:0 2px 18px rgba(0,0,0,0.15); padding:14px 0;}
-  nav{display:flex; align-items:center; justify-content:space-between;}
-  .logo{font-family:'Playfair Display', serif; font-size:28px; font-weight:700; color:var(--terracotta); letter-spacing:1px;}
-  .logo span{color:#fff;}
-  .nav-links{display:flex; gap:34px; align-items:center;}
-  .nav-links a{color:#fff; font-size:15px; font-weight:500; opacity:.9;}
-  .nav-links a:hover{opacity:1; color:var(--terracotta);}
-  .nav-cta{background:var(--terracotta); color:#fff !important; padding:10px 22px; border-radius:2px; opacity:1 !important;}
-  .nav-toggle{display:none; color:#fff; font-size:26px; cursor:pointer; background:none; border:none;}
-
-  /* HERO */
-  .hero{
-    min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden;
-    background-image:
-      linear-gradient(180deg, rgba(20,20,18,.55) 0%, rgba(20,20,18,.35) 45%, rgba(20,20,18,.75) 100%),
-      url('images/hero.jpg'),
-      linear-gradient(120deg, #1f3b40 0%, #4f7d82 38%, #d99a5b 68%, #c1502e 100%);
-    background-size:cover, cover, cover;
-    background-position:center, center, center;
-    background-repeat:no-repeat, no-repeat, no-repeat;
-  }
-  .hero::after{
-    content:""; position:absolute; inset:0;
-    background-image: radial-gradient(circle at 15% 25%, rgba(255,255,255,0.10) 0, transparent 40%),
-                       radial-gradient(circle at 85% 75%, rgba(255,255,255,0.08) 0, transparent 45%);
-  }
-  .hero-inner{position:relative; z-index:2; text-align:center; width:100%;}
-  .hero .eyebrow{color:#f3d9b1; text-align:center;}
-  .hero h1{
-    font-size:clamp(42px, 7vw, 86px); color:#fff; font-weight:700; margin-bottom:18px;
-    text-shadow:0 4px 24px rgba(0,0,0,0.25);
-  }
-  .hero p.tag{
-    color:#f2ead9; font-size:19px; max-width:600px; margin:0 auto 36px; font-weight:400;
-  }
-  .hero-btns{display:flex; gap:18px; justify-content:center; flex-wrap:wrap;}
-  .scroll-cue{
-    position:absolute; bottom:34px; left:50%; transform:translateX(-50%); color:#fff; opacity:.8;
-    font-size:13px; letter-spacing:2px; text-transform:uppercase; z-index:2;
-  }
-
-  /* STRIP */
-  .strip{background:var(--charcoal); padding:36px 0;}
-  .strip .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px;}
-  .strip-item{display:flex; align-items:center; gap:12px; color:#f2ead9; flex:1; min-width:190px;}
-  .strip-item .ic{font-size:26px;}
-  .strip-item strong{display:block; font-size:14px; color:#fff;}
-  .strip-item span.sub{font-size:12.5px; color:#c9bfa9;}
-
-  /* ABOUT */
-  .about{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
-  .about-media{
-    aspect-ratio:4/5; border-radius:6px; position:relative; overflow:hidden;
-    background-image:url('images/about.jpg'), linear-gradient(160deg, var(--deep-green), #274037 60%, #1d302a);
-    background-size:cover, cover;
-    background-position:center, center;
-    background-repeat:no-repeat, no-repeat;
-    display:flex; align-items:flex-end; justify-content:center; color:#e9e2d0;
-  }
-  .about-media .frame-label{
-    position:absolute; bottom:0; left:0; right:0; font-size:11.5px; letter-spacing:.5px;
-    color:#f2ead9; background:rgba(20,20,18,0.55); padding:8px 14px; text-align:center;
-  }
-  .about h2{font-size:38px; margin-bottom:22px;}
-  .about p{margin-bottom:16px; color:#5a4f42; font-size:15.5px;}
-  .about-stats{display:flex; gap:36px; margin-top:28px;}
-  .about-stats div strong{display:block; font-family:'Playfair Display',serif; font-size:30px; color:var(--terracotta);}
-  .about-stats div span{font-size:12.5px; color:#7a6e5c; letter-spacing:.5px; text-transform:uppercase;}
-
-  /* MENU */
-  .menu{background:var(--sand);}
-  .section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
-  .section-head h2{font-size:40px;}
-  .section-head p{color:#5a4f42; margin-top:12px; font-size:15.5px;}
-  .menu-tabs{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:44px;}
-  .menu-tab{
-    background:transparent; border:1.5px solid var(--charcoal); color:var(--charcoal);
-    padding:10px 22px; border-radius:30px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Cairo',sans-serif;
-    transition:all .2s ease;
-  }
-  .menu-tab.active, .menu-tab:hover{background:var(--terracotta); border-color:var(--terracotta); color:#fff;}
-  .menu-panel{display:none;}
-  .menu-panel.active{display:block; animation:fade .35s ease;}
-  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
-  .menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 40px;}
-  .menu-item{
-    display:flex; justify-content:space-between; gap:14px; padding:16px 0; border-bottom:1px dashed #c8b998;
-  }
-  .menu-item .names{display:flex; flex-direction:column;}
-  .menu-item .en{font-weight:600; font-size:15.5px; color:var(--charcoal);}
-  .menu-item .ar{font-size:14px; color:#8a7c64; direction:rtl;}
-  .menu-item .price{font-weight:700; color:var(--terracotta); white-space:nowrap; font-size:15px; align-self:flex-start;}
-  .menu-note{text-align:center; margin-top:36px; font-size:13.5px; color:#7a6e5c;}
-
-  /* GALLERY */
-  .gallery-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;}
-  .g-item{
-    aspect-ratio:1/1; border-radius:6px; display:flex; align-items:flex-end; justify-content:center;
-    color:#fff; font-size:12px; letter-spacing:.5px; text-align:center; position:relative; overflow:hidden;
-    background-size:cover, cover; background-position:center, center; background-repeat:no-repeat, no-repeat;
-  }
-  .g-item span{position:relative; z-index:2; opacity:.95; width:100%; padding:8px 10px; background:rgba(20,20,18,0.5);}
-  .g1{background-image:url('images/gallery-1.jpg'), linear-gradient(160deg,#4f7d82,#1f3b40);}
-  .g2{background-image:url('images/gallery-2.jpg'), linear-gradient(160deg,#c1502e,#7a2f18);}
-  .g3{background-image:url('images/gallery-3.jpg'), linear-gradient(160deg,#3f5343,#1d2b23);}
-  .g4{background-image:url('images/gallery-4.jpg'), linear-gradient(160deg,#d99a5b,#a5652c);}
-  .g5{background-image:url('images/gallery-5.jpg'), linear-gradient(160deg,#8a7c64,#4c4436);}
-  .g6{background-image:url('images/gallery-6.jpg'), linear-gradient(160deg,#6b8f93,#2c454a);}
-
-  /* TESTIMONIALS */
-  .testimonials{background:var(--charcoal); color:#f2ead9;}
-  .testimonials .section-head h2{color:#fff;}
-  .testimonials .section-head p{color:#c9bfa9;}
-  .t-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
-  .t-card{background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:28px; border-radius:6px;}
-  .stars{color:#e0a458; letter-spacing:2px; margin-bottom:14px; font-size:15px;}
-  .t-card p.quote{font-size:14.5px; color:#e5ddc9; margin-bottom:18px; font-style:italic;}
-  .t-card .who{font-size:13px; color:#c9bfa9; font-weight:600;}
-
-  /* RESERVE */
-  .reserve{display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:flex-start;}
-  .reserve-info h2{font-size:38px; margin-bottom:18px;}
-  .reserve-info p{color:#5a4f42; margin-bottom:22px; font-size:15.5px;}
-  .reserve-info .rline{display:flex; gap:12px; margin-bottom:14px; font-size:14.5px;}
-  .reserve-info .rline strong{color:var(--charcoal);}
-  form.res-form{background:#fff; padding:38px; border-radius:8px; box-shadow:0 12px 40px rgba(42,36,31,0.08);}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .field{margin-bottom:18px;}
-  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:7px; color:var(--charcoal);}
-  .field input, .field select, .field textarea{
-    width:100%; padding:12px 14px; border:1.5px solid #e0d5bf; border-radius:4px; font-family:'Cairo',sans-serif;
-    font-size:14.5px; background:#fbf7ee; color:var(--ink);
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--terracotta);}
-  .res-form .btn-primary{width:100%; padding:15px; font-size:15px;}
-  #res-success{display:none; background:#eef4ea; border:1px solid #b9d3a8; color:#345226; padding:16px; border-radius:6px; font-size:14.5px; margin-top:16px;}
-
-  /* CONTACT */
-  .contact{background:var(--sand);}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
-  .contact-list .c-row{display:flex; gap:16px; margin-bottom:26px;}
-  .contact-list .ic{font-size:22px; width:36px;}
-  .contact-list strong{display:block; font-size:15px; margin-bottom:3px;}
-  .contact-list span{font-size:14.5px; color:#5a4f42;}
-  .hours-table{width:100%; margin-top:8px; font-size:14.5px;}
-  .hours-table td{padding:5px 0; color:#5a4f42;}
-  .hours-table td:last-child{text-align:right; font-weight:600; color:var(--charcoal);}
-  .map-embed{border-radius:8px; overflow:hidden; box-shadow:0 12px 40px rgba(42,36,31,0.1); height:100%; min-height:340px;}
-  .map-embed iframe{width:100%; height:100%; min-height:340px; border:0;}
-
-  /* FOOTER */
-  footer{background:var(--charcoal); color:#c9bfa9; padding:50px 0 26px;}
-  .foot-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; padding-bottom:30px; border-bottom:1px solid rgba(255,255,255,0.1);}
-  .foot-logo{font-family:'Playfair Display',serif; font-size:26px; color:var(--terracotta);}
-  .foot-links{display:flex; gap:26px; flex-wrap:wrap;}
-  .foot-links a{font-size:14px; color:#c9bfa9;}
-  .foot-links a:hover{color:#fff;}
-  .foot-bottom{padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:#8a8071;}
-
-  @media (max-width: 900px){
-    .nav-links{
-      position:fixed; top:0; right:-100%; width:78%; height:100vh; background:var(--charcoal);
-      flex-direction:column; justify-content:center; align-items:flex-start; padding:40px; transition:right .3s ease;
-    }
-    .nav-links.open{right:0;}
-    .nav-toggle{display:block;}
-    .about, .reserve, .contact-grid{grid-template-columns:1fr;}
-    .menu-grid{grid-template-columns:1fr;}
-    .gallery-grid{grid-template-columns:repeat(2,1fr);}
-    .t-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
-    section{padding:60px 0;}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -238,6 +18,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
+        <a href="#order">Order</a>
         <a href="#gallery">Gallery</a>
         <a href="#reviews">Reviews</a>
         <a href="#reserve">Reserve</a>
@@ -253,7 +34,7 @@
   <div class="wrap hero-inner">
     <span class="eyebrow">Sa'ada Seafront &middot; Muharraq &middot; Bahrain &middot; Est. 1920</span>
     <h1>Naseef Restaurant</h1>
-    <p class="tag">Waterfront Bahraini dining with sea views, traditional tandoor bread, and a menu built on generous, home-style flavor.</p>
+    <p class="tag">Waterfront Bahraini dining with sea views, traditional tanoor bread, and a menu built on generous, home-style flavor.</p>
     <div class="hero-btns">
       <a href="#reserve" class="btn btn-primary">Book a Table</a>
       <a href="#menu" class="btn btn-outline">View Menu</a>
@@ -265,7 +46,7 @@
 <div class="strip">
   <div class="wrap">
     <div class="strip-item"><span class="ic">&#127958;&#65039;</span><div><strong>Sea View Terrace</strong><span class="sub">Indoor &amp; outdoor seating</span></div></div>
-    <div class="strip-item"><span class="ic">&#128293;</span><div><strong>Traditional Tandoor</strong><span class="sub">Fresh baked Bahraini bread</span></div></div>
+    <div class="strip-item"><span class="ic">&#128293;</span><div><strong>Traditional Tanoor</strong><span class="sub">Fresh baked Bahraini bread</span></div></div>
     <div class="strip-item"><span class="ic">&#128663;</span><div><strong>Free Parking</strong><span class="sub">On-site parking lot</span></div></div>
     <div class="strip-item"><span class="ic">&#128106;</span><div><strong>Family Friendly</strong><span class="sub">All group sizes welcome</span></div></div>
   </div>
@@ -275,9 +56,10 @@
   <div class="wrap about">
     <div class="about-media"></div>
     <div>
+      <!-- TODO: replace with the founder's story once the owner sends her grandfather's history -->
       <span class="eyebrow">Our Story</span>
       <h2>A Muharraq tradition, since 1920</h2>
-      <p>Perched on the Sa'ada Seafront, Naseef Restaurant pairs a century of Bahraini hospitality with a front-row view of the sea, passing yachts, and the Manama skyline. Our bread still comes from an old-fashioned tandoor, baked the way it always has been.</p>
+      <p>Perched on the Sa'ada Seafront, Naseef Restaurant pairs a century of Bahraini hospitality with a front-row view of the sea, passing yachts, and the Manama skyline. Our bread still comes from an old-fashioned tanoor, baked the way it always has been.</p>
       <p>From leisurely breakfasts to family dinners and evening coffee on the terrace, Naseef is built around generous portions, calm surroundings, and food that feels like home — Bahraini classics alongside a few international favorites.</p>
       <div class="about-stats">
         <div><strong>1920</strong><span>Est. Heritage</span></div>
@@ -288,12 +70,23 @@
   </div>
 </section>
 
+<section class="tanoor" id="tanoor">
+  <div class="wrap">
+    <div class="tanoor-media"></div>
+    <div>
+      <span class="eyebrow">Baked Fresh, Daily</span>
+      <h2>From Our Tanoor</h2>
+      <p>Every loaf at Naseef still comes from a traditional clay tanoor — the same slow, wood-fired method used since 1920. It's the base of our breakfast baskets, our saj, and the fresh bread served with every grilled plate.</p>
+    </div>
+  </div>
+</section>
+
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">The Menu</span>
       <h2>A Taste of Naseef</h2>
-      <p>A selection from our breakfast, mixed plates, grill and dessert menus. Full menu available in-restaurant and on Talabat.</p>
+      <p>A selection from our breakfast, mixed plates, grill and dessert menus.</p>
     </div>
 
     <div class="menu-tabs">
@@ -361,7 +154,37 @@
       </div>
     </div>
 
-    <p class="menu-note">Prices in Bahraini Dinar (BHD). Menu items and prices are subject to change — please confirm with staff. Full menu &amp; delivery available via Talabat.</p>
+    <p class="menu-note">Prices in Bahraini Dinar (BHD). Menu items and prices are subject to change. For the live, always-current menu and to order directly, see <a href="https://app.qlub.io/qr/bh/naseef_bh_muharraq/8/_/_/ad3e17cf8e/qsr/p7yL4?theme=black&amp;lang=en&amp;qsr=dm" target="_blank" rel="noopener">our digital menu ↗</a>.</p>
+  </div>
+</section>
+
+<section class="order-online" id="order">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Order &amp; Catering</span>
+      <h2>Get Naseef Delivered — or Book Catering</h2>
+      <p>Order through our digital menu, get it delivered via Talabat, or call ahead for catering.</p>
+    </div>
+    <div class="order-grid">
+      <div class="order-card">
+        <span class="ic">📱</span>
+        <h3>Order &amp; Pay (QR Menu)</h3>
+        <p>Browse our live menu and order directly from your table or for pickup.</p>
+        <a href="https://app.qlub.io/qr/bh/naseef_bh_muharraq/8/_/_/ad3e17cf8e/qsr/p7yL4?theme=black&amp;lang=en&amp;qsr=dm" target="_blank" rel="noopener" class="btn btn-primary">Open Digital Menu</a>
+      </div>
+      <div class="order-card">
+        <span class="ic">🛵</span>
+        <h3>Delivery</h3>
+        <p>Order for delivery across Muharraq and nearby areas via Talabat.</p>
+        <a href="https://www.talabat.com/bahrain/naseef" target="_blank" rel="noopener" class="btn btn-outline-dark">Order on Talabat</a>
+      </div>
+      <div class="order-card">
+        <span class="ic">🍽️</span>
+        <h3>Catering</h3>
+        <p>Planning an event or large group? See our catering options.</p>
+        <a href="catering.html" class="btn btn-outline-dark">Catering Services</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -379,6 +202,70 @@
       <div class="g-item g4"></div>
       <div class="g-item g5"></div>
       <div class="g-item g6"></div>
+    </div>
+    <div class="gallery-cta">
+      <a href="gallery.html" class="btn btn-outline-dark">See More Photos</a>
+    </div>
+  </div>
+</section>
+
+<section id="reserve">
+  <div class="wrap reserve">
+    <div class="reserve-info">
+      <span class="eyebrow">Reservations</span>
+      <h2>Book Your Table</h2>
+      <p>Submit your details and we'll confirm by WhatsApp. Online reservations are available Sunday–Thursday only — for Friday &amp; Saturday tables, please call or WhatsApp us directly since weekends fill up fast.</p>
+      <div class="rline">📞 <strong>Call:</strong>&nbsp;+973 3896&nbsp;6668</div>
+      <div class="rline">💬 <strong>WhatsApp:</strong>&nbsp;+973 3896&nbsp;6668</div>
+      <div class="rline">🕐 <strong>Open Daily:</strong>&nbsp;7:00 AM – 11:00 PM</div>
+    </div>
+    <form class="res-form" id="reserveForm">
+      <div class="form-row">
+        <div class="field"><label>Full Name</label><input type="text" id="resName" required placeholder="Your name"></div>
+        <div class="field"><label>Phone Number</label><input type="tel" id="resPhone" required placeholder="+973 ..."></div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Date</label>
+          <input type="date" id="resDate" required>
+          <span class="date-warning" id="dateWarning">We don't take online bookings for Fri/Sat — please call or WhatsApp us directly for weekend tables.</span>
+        </div>
+        <div class="field"><label>Time</label><input type="time" id="resTime" required></div>
+      </div>
+      <div class="field">
+        <label>Party Size</label>
+        <select id="resParty" required>
+          <option value="">Select...</option>
+          <option>1–2 guests</option>
+          <option>3–4 guests</option>
+          <option>5–8 guests</option>
+          <option>9+ guests (large group)</option>
+        </select>
+      </div>
+      <div class="field"><label>Notes (optional)</label><textarea id="resNotes" rows="3" placeholder="Seating preference, occasion, allergies..."></textarea></div>
+      <button type="submit" class="btn btn-primary">Request Reservation via WhatsApp</button>
+      <div id="res-success">Thanks! We've opened WhatsApp with your reservation details — just hit send and our team will confirm shortly. For Friday/Saturday tables, please call or message us directly.</div>
+    </form>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-list">
+      <span class="eyebrow">Visit Us</span>
+      <h2 style="font-size:34px; margin-bottom:24px;">Find Naseef</h2>
+      <div class="c-row"><span class="ic">📍</span><div><strong>Address</strong><span>Shop 1, Building 1128, Road 1531, Sa'ada Seafront, Muharraq, Bahrain</span></div></div>
+      <div class="c-row"><span class="ic">📞</span><div><strong>Phone</strong><span>+973 3896 6668</span></div></div>
+      <div class="c-row"><span class="ic">📷</span><div><strong>Instagram</strong><span>@naseefrestaurant</span></div></div>
+      <div class="c-row"><span class="ic">🕐</span><div>
+        <strong>Hours</strong>
+        <table class="hours-table">
+          <tr><td>Daily</td><td>7:00 AM – 11:00 PM</td></tr>
+        </table>
+      </div></div>
+    </div>
+    <div class="map-embed">
+      <iframe src="https://maps.google.com/maps?q=Naseef%20Restaurant%20Saada%20Seafront%20Muharraq%20Bahrain&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -407,63 +294,9 @@
         <div class="who">أحمد العكري &middot; Local Guide</div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="reserve">
-  <div class="wrap reserve">
-    <div class="reserve-info">
-      <span class="eyebrow">Reservations</span>
-      <h2>Book Your Table</h2>
-      <p>Send us your details and we'll confirm your reservation by phone. For same-day bookings, calling ahead is best — especially for sunset seating on the terrace.</p>
-      <div class="rline">📞 <strong>Call:</strong>&nbsp;+973 3896 6668</div>
-      <div class="rline">💬 <strong>Instagram:</strong>&nbsp;@naseefrestaurant</div>
-      <div class="rline">🕐 <strong>Open Daily:</strong>&nbsp;7:00 AM – 11:00 PM</div>
-    </div>
-    <form class="res-form" id="reserveForm">
-      <div class="form-row">
-        <div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
-        <div class="field"><label>Phone Number</label><input type="tel" required placeholder="+973 ..."></div>
-      </div>
-      <div class="form-row">
-        <div class="field"><label>Date</label><input type="date" required></div>
-        <div class="field"><label>Time</label><input type="time" required></div>
-      </div>
-      <div class="field">
-        <label>Party Size</label>
-        <select required>
-          <option value="">Select...</option>
-          <option>1–2 guests</option>
-          <option>3–4 guests</option>
-          <option>5–8 guests</option>
-          <option>9+ guests (large group)</option>
-        </select>
-      </div>
-      <div class="field"><label>Notes (optional)</label><textarea rows="3" placeholder="Seating preference, occasion, allergies..."></textarea></div>
-      <button type="submit" class="btn btn-primary">Request Reservation</button>
-      <div id="res-success">Thank you! Your request has been noted. Our team will call you shortly to confirm — for urgent bookings, please call +973 3896 6668 directly.</div>
-    </form>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-list">
-      <span class="eyebrow">Visit Us</span>
-      <h2 style="font-size:34px; margin-bottom:24px;">Find Naseef</h2>
-      <div class="c-row"><span class="ic">📍</span><div><strong>Address</strong><span>Shop 1, Building 1128, Road 1531, Sa'ada Seafront, Muharraq, Bahrain</span></div></div>
-      <div class="c-row"><span class="ic">📞</span><div><strong>Phone</strong><span>+973 3896 6668</span></div></div>
-      <div class="c-row"><span class="ic">📷</span><div><strong>Instagram</strong><span>@naseefrestaurant</span></div></div>
-      <div class="c-row"><span class="ic">🕐</span><div>
-        <strong>Hours</strong>
-        <table class="hours-table">
-          <tr><td>Daily</td><td>7:00 AM – 11:00 PM</td></tr>
-        </table>
-      </div></div>
-    </div>
-    <div class="map-embed">
-      <iframe src="https://maps.google.com/maps?q=Naseef%20Restaurant%20Saada%20Seafront%20Muharraq%20Bahrain&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+    <p style="text-align:center; margin-top:34px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Naseef+Restaurant+Muharraq" target="_blank" rel="noopener" style="color:#e0a458; font-weight:600; text-decoration:underline;">See all reviews on Google ↗</a>
+    </p>
   </div>
 </section>
 
@@ -511,11 +344,60 @@
     });
   });
 
-  // Reservation form: front-end only demo. Connect to email/WhatsApp/booking backend for production use.
+  // Reservations: block Friday (5) & Saturday (6), route confirmed requests to WhatsApp.
+  const RESERVE_WHATSAPP_NUMBER = '97338966668'; // same as main line
+  const resDate = document.getElementById('resDate');
+  const dateWarning = document.getElementById('dateWarning');
+
+  const todayStr = new Date().toISOString().split('T')[0];
+  resDate.min = todayStr;
+
+  function isWeekendBlocked(dateStr){
+    if(!dateStr) return false;
+    const day = new Date(dateStr + 'T00:00:00').getDay(); // 0=Sun ... 5=Fri, 6=Sat
+    return day === 5 || day === 6;
+  }
+
+  resDate.addEventListener('input', () => {
+    if(isWeekendBlocked(resDate.value)){
+      dateWarning.classList.add('show');
+      resDate.setCustomValidity('Online bookings are closed for Fri/Sat — please call or WhatsApp us.');
+    } else {
+      dateWarning.classList.remove('show');
+      resDate.setCustomValidity('');
+    }
+  });
+
   document.getElementById('reserveForm').addEventListener('submit', function(e){
     e.preventDefault();
+
+    if(isWeekendBlocked(resDate.value)){
+      dateWarning.classList.add('show');
+      resDate.focus();
+      return;
+    }
+
+    const name = document.getElementById('resName').value;
+    const phone = document.getElementById('resPhone').value;
+    const date = resDate.value;
+    const time = document.getElementById('resTime').value;
+    const party = document.getElementById('resParty').value;
+    const notes = document.getElementById('resNotes').value;
+
+    const message =
+      `Hi Naseef Restaurant, I'd like to book a table.\n` +
+      `Name: ${name}\n` +
+      `Phone: ${phone}\n` +
+      `Date: ${date}\n` +
+      `Time: ${time}\n` +
+      `Party size: ${party}\n` +
+      `Notes: ${notes || '-'}`;
+
+    window.open(`https://wa.me/${RESERVE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+
     document.getElementById('res-success').style.display = 'block';
     this.reset();
+    dateWarning.classList.remove('show');
   });
 </script>
 
