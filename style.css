@@ -182,6 +182,8 @@ nav{display:flex; align-items:center; justify-content:space-between;}
 .menu-item .price{font-weight:700; color:var(--terracotta); white-space:nowrap; font-size:15px; align-self:flex-start;}
 .menu-note{text-align:center; margin-top:36px; font-size:13.5px; color:#7a6e5c;}
 .menu-note a{color:var(--terracotta); font-weight:600; text-decoration:underline;}
+.menu-subhead{font-family:'Playfair Display',serif; font-size:21px; color:var(--terracotta); margin:38px 0 16px; padding-bottom:8px; border-bottom:1px solid rgba(42,36,31,0.1);}
+.menu-subhead:first-child{margin-top:0;}
 
 /* GALLERY */
 .gallery-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;}
