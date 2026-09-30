@@ -315,3 +315,35 @@ footer{background:var(--charcoal); color:#c9bfa9; padding:50px 0 26px;}
   .form-row{grid-template-columns:1fr;}
   section{padding:60px 0;}
 }
+
+/* RTL support for Arabic pages */
+[dir="rtl"] body{font-family:'Cairo',sans-serif;}
+[dir="rtl"] .nav-links{flex-direction:row-reverse;}
+[dir="rtl"] .foot-links{flex-direction:row-reverse;}
+[dir="rtl"] .strip .wrap{flex-direction:row-reverse;}
+[dir="rtl"] .strip-item{flex-direction:row-reverse; text-align:right;}
+[dir="rtl"] .c-row{flex-direction:row-reverse; text-align:right;}
+[dir="rtl"] .rline{flex-direction:row-reverse; text-align:right;}
+[dir="rtl"] .about-stats{flex-direction:row-reverse;}
+[dir="rtl"] .foot-top{flex-direction:row-reverse;}
+[dir="rtl"] .foot-bottom{flex-direction:row-reverse;}
+[dir="rtl"] .hours-table td:last-child{text-align:left;}
+[dir="rtl"] .lb-close{right:auto; left:28px;}
+[dir="rtl"] .lb-prev{left:auto; right:20px;}
+[dir="rtl"] .lb-next{right:auto; left:20px;}
+[dir="rtl"] .catering-list li::before{order:2;}
+[dir="rtl"] .catering-list li{flex-direction:row-reverse; justify-content:flex-end;}
+[dir="rtl"] .menu-item{flex-direction:row-reverse;}
+[dir="rtl"] .menu-item .names{align-items:flex-end;}
+[dir="rtl"] .field label{text-align:right;}
+[dir="rtl"] .back-link{direction:rtl;}
+.lang-switch{
+  border:1.5px solid rgba(255,255,255,0.5); color:#fff !important; padding:6px 14px;
+  border-radius:999px; font-size:13px !important; font-weight:600 !important; opacity:1 !important;
+  margin-inline-start:8px;
+}
+.lang-switch:hover{background:var(--terracotta); border-color:var(--terracotta); color:#fff !important;}
+@media (max-width:900px){
+  [dir="rtl"] .nav-links{right:auto; left:-100%; align-items:flex-end;}
+  [dir="rtl"] .nav-links.open{left:0; right:auto;}
+}
