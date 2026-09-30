@@ -30,6 +30,17 @@ HOMEPAGE (index.html):
                   the same section. Recommended: square, at least
                   800x800px.
 
+  founder-amina.jpg     Photo of Amina Naseef (third generation) in the
+                  same section. Recommended: square, at least 800x800px.
+                  Until this file is added, a plain color background
+                  shows in its place.
+
+  founder-fourthgen.jpg  Photo of Noor & Faisal Al Dosery (fourth
+                  generation, current owners) in the same section.
+                  Recommended: square, at least 800x800px. Until this
+                  file is added, a plain color background shows in
+                  its place.
+
   gallery-1.jpg   Sea view terrace
   gallery-2.jpg   Naseef signage & entrance
   gallery-3.jpg   Indoor seating & greenery
